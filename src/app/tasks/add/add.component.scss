@@ -1,0 +1,29 @@
+.container {
+    padding-top: 20px;
+    margin: 0 auto;
+    max-width: 1348px;
+
+    mat-form-field {
+        width: 100%;
+    }
+}
+
+.container>* {
+    width: 60%;
+}
+
+.container form {
+    margin-bottom: 20px;
+}
+
+.container form>* {
+    margin: 5px 0;
+}
+
+.container .mat-radio-button {
+    margin: 0 5px;
+}
+
+.btn-align {
+    align-content: flex-end !important;
+}

@@ -1,0 +1,44 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Assign permissions test",
+      "description": "Assign permissions to the user",
+      "duedate": "2024-06-13T22:00:00.000Z",
+      "priority": "Medium",
+      "status": "Completed"
+    },
+    {
+      "title": "Export sql data ",
+      "description": "Export sql data to CSV",
+      "duedate": "2024-06-27T22:00:00.000Z",
+      "priority": "Medium",
+      "status": "New",
+      "id": 2
+    },
+    {
+      "title": "AWS training ",
+      "description": "AWS training for certification",
+      "duedate": "2024-07-18T22:00:00.000Z",
+      "priority": "High",
+      "status": "Pending",
+      "id": 3
+    },
+    {
+      "title": "Design changes",
+      "description": "Enhance current angular application ",
+      "duedate": "2024-08-01T22:00:00.000Z",
+      "priority": "High",
+      "status": "Pending",
+      "id": 4
+    },
+    {
+      "id": 5,
+      "title": "App Upgrade",
+      "description": "Application upgrade for new features",
+      "duedate": "2024-06-27T22:00:00.000Z",
+      "priority": "Low",
+      "status": "New"
+    }
+  ]
+}

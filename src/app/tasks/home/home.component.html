@@ -1,0 +1,74 @@
+<div class="main-body">
+    <section>
+        <div>
+            <a mat-raised-button color="primary" routerLink="/add">Add New Task</a>
+        </div>
+    </section>
+    <br>
+    <mat-divider></mat-divider>
+    <mat-form-field>
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="" #input>
+    </mat-form-field>
+
+    <div class="table-container">
+        <table mat-table [dataSource]="dataSource" matSort>
+
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+                <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="title">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Title </th>
+                <td mat-cell *matCellDef="let row"> {{row.title}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="description">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+                <td mat-cell *matCellDef="let row"> {{row.description}}</td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="duedate">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Duedate </th>
+                <td mat-cell *matCellDef="let row"> {{row.duedate | date}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="priority">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Priority </th>
+                <td mat-cell *matCellDef="let row"> {{row.priority}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+                <td mat-cell *matCellDef="let row"> {{row.status}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef> Actions </th>
+                <td mat-cell *matCellDef="let row">
+                    <mat-checkbox value="checked" matInput [disabled]="row.status === 'Completed'"
+                        matTooltip="Mark as completed" [checked]="row.status === 'Completed'"
+                        (click)="changeValue(row.id)" color="primary">
+                    </mat-checkbox>
+                    <button mat-icon-button color="primary" [routerLink]="['/edit',row.id]" matTooltip="Edit task">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button color="warn" (click)="deleteTask(row.id)" matTooltip="Delete task">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">No records found</td>
+            </tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+    </div>
+</div>

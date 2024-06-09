@@ -2,25 +2,36 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.4.
 
-## Development server
+# Get started
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+ ## Prerequisites
+Install Node.js which includes Node Package Manager
+Setting Up a Project
+Install the Angular CLI globally:
 
-## Code scaffolding
+npm install -g @angular/cli
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Clone the repo
+git clone https://github.com/Sreelathagoud94/Task-Management.git
+cd intern-angular
 
-## Build
+## Install npm packages
+Install the npm packages described in the package.json and verify that it works:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+npm install
+npm start
 
-## Running unit tests
+The npm run run-json command runs json server on port 3000.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Shut it down manually with Ctrl-C.
 
-## Running end-to-end tests
+## npm scripts
+These are the most useful commands defined in package.json:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+npm start - runs the TypeScript compiler, asset copier, and a server at the same time, all three in "watch mode".
+npm run run-json - runs json server on port 3000 http://localhost:3000
+npm run build - runs the TypeScript compiler and asset copier once.
+npm run build:watch - runs the TypeScript compiler and asset copier in "watch mode"; when changes occur to source files, they will be recompiled or copied into dist/.
 
 ## Further help
 

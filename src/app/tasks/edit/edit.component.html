@@ -1,0 +1,59 @@
+<div class="container">
+    <div>
+        <a mat-raised-button color="warn" routerLink="/">Back to list</a>
+    </div>
+    <form [formGroup]="taskForm" novalidate>
+        <h1>Update task</h1>
+        <mat-form-field appearance="outline">
+            <mat-label>Title</mat-label>
+            <input matInput type="text" placeholder="Title" formControlName="title">
+            <mat-hint align="end">Not more than 20 characters long.</mat-hint>
+            <mat-error *ngIf="errorHandling('title','required')">
+                Title may not be empty
+            </mat-error>
+            <mat-error *ngIf="errorHandling('title', 'maxlength')">Limit exceeded</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Description</mat-label>
+            <textarea matInput placeholder="Description" formControlName="description"></textarea>
+            <mat-hint align="end">Not more than 100 characters long.</mat-hint>
+            <mat-error *ngIf="errorHandling('description','required')">
+                Description may not be empty
+            </mat-error>
+            <mat-error *ngIf="errorHandling('description', 'maxlength')">Limit exceeded</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Due date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="duedate">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="errorHandling('duedate','required')">Duedate may not be empty</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Priority</mat-label>
+            <mat-select formControlName="priority">
+                <mat-option *ngFor="let val of priority" [value]="val">{{val}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="errorHandling('priority','required')">Priority may not be empty</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Status</mat-label>
+            <mat-select formControlName="status">
+                <mat-option *ngFor="let val of status" [value]="val">{{val}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="errorHandling('status','required')">Status may not be empty</mat-error>
+        </mat-form-field>
+
+        <div class="action">
+            <button mat-raised-button type="button" [mat-dialog-close]="false" routerLink="/">Cancel</button>&nbsp;
+            <button mat-raised-button color="primary" type="submit" (click)="updateTask()">Save</button>
+        </div>
+    </form>
+</div>
